@@ -70,6 +70,27 @@ def count_chars_as_dict(text):
             chars[lowered] = 1
     return chars
 
+def chars_dict_to_sorted_list(char_dict):
+    """
+    Takes a dictionary of character counts and returns a sorted list of dictionaries.
+    Each dictionary in the list contains a character and the number of times it appears.
+
+    Parameters
+    ----------
+    char_dict : dict
+        A dictionary containing the character counts.
+
+    Returns
+    -------
+    list
+        A sorted list of dictionaries, each containing a character and its count.
+    """
+    sorted_list = []
+    for ch in char_dict:
+        sorted_list.append({"char": ch, "num": char_dict[ch]})
+    sorted_list.sort(reverse=True, key=lambda x: x["num"])
+    return sorted_list
+
 def main():
     """
     Asks the user for a path to a text file,
