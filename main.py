@@ -91,6 +91,28 @@ def chars_dict_to_sorted_list(char_dict):
     sorted_list.sort(reverse=True, key=lambda x: x["num"])
     return sorted_list
 
+def report_results(path, num_words, sorted_list):
+    """
+    Prints a report of the results.
+
+    Parameters
+    ----------
+    num_words : int
+        The number of words in the text.
+    sorted_list : list
+        A sorted list of dictionaries containing the character counts.
+    """
+    print(f"--- Begin report of {path} ---")
+    print(f"Number of words in document: {num_words}")
+    print()
+
+    for item in sorted_list:
+        if not item["char"].isalpha():
+            continue
+        print(f"The '{item['char']} character appears {item['num']} times")
+
+    print("--- End report ---")
+
 def main():
     """
     Asks the user for a path to a text file,
@@ -105,11 +127,10 @@ def main():
 
     file_contents = get_book_text(path_to_file)
     num_words = get_num_words(file_contents)
-    char_counts = count_chars(file_contents)
+    char_dict = count_chars_as_dict(file_contents)
+    sorted_char_list = chars_dict_to_sorted_list(char_dict)
 
-    print(f"Number of words: {num_words}")
-    print(f"Character counts: {char_counts}")
-    print(f"Number of characters: {get_num_chars(file_contents)}")
+    report_results(path_to_file, num_words, sorted_char_list)
 
 
 main()
