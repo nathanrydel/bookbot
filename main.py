@@ -28,5 +28,6 @@ def main():
     path_to_file = input()
     file_contents = get_book_text(path_to_file)
     print(file_contents)
+    print("Number of words: " + str(len(file_contents.split())))
 
 main()
