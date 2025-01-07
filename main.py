@@ -47,7 +47,7 @@ def get_num_chars(text):
     """
     return len(text)
 
-def count_chars(text):
+def count_chars_as_dict(text):
     """
     Returns the amount of times each character appears in a string.
 
