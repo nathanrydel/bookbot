@@ -81,12 +81,14 @@ def main():
     """
     print("Enter the path to the file: ")
     path_to_file = input()
-    
+
     file_contents = get_book_text(path_to_file)
     num_words = get_num_words(file_contents)
     char_counts = count_chars(file_contents)
 
     print(f"Number of words: {num_words}")
     print(f"Character counts: {char_counts}")
+    print(f"Number of characters: {get_num_chars(file_contents)}")
+
 
 main()
